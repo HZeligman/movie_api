@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "movie_api",
+  "description": "",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HZeligman/movie_api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HZeligman/movie_api/issues"
+  },
+  "homepage": "https://github.com/HZeligman/movie_api#readme"
+}
