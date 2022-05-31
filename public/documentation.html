@@ -8,7 +8,83 @@
 
   </head>
   <body>
-    <h2>Documentation Page</h2>
-    <p>The web application, My Cinema, will provide users with access to information about different movies, directors, and genres. Users will be able to sign up, update their personal information, and create a list of their favorite movies.</p>
+    <div>
+      <h2>Documentation Page</h2>
+      <p>The web application, My Cinema, will provide users with access to information about different movies, directors, and genres. Users will be able to sign up, update their personal information, and create a list of their favorite movies.</p>
+    </div>
+    <div>
+      <table>
+        <tr>
+          <th>Decription</th>
+          <th>URL</th>
+          <th>HTTP Method</th>
+          <th>Request body data format.</th>
+          <th>Response body data format.</th>
+        </tr>
+        <tr>
+          <td>Return a list of all movies to the user.</td>
+          <td>/movies</td>
+          <td>get</td>
+          <td>None</td>
+          <td>JSON object holding data about all movies.</td>
+        </tr>
+        <tr>
+          <td>Return data about a specific movie by title to the user.</td>
+          <td>/movies/[title]</td>
+          <td>get</td>
+          <td>None</td>
+          <td>JSON object containing the movies title, director, description, genre, and image URL.</td>
+        </tr>
+        <tr>
+          <td>Return data about a genre by name.</td>
+          <td>/movies/genre/[name]</td>
+          <td>get</td>
+          <td>None</td>
+          <td>JSON object holding data about the specific genre.</td>
+        </tr>
+        <tr>
+          <td>Return data about a director by name</td>
+          <td>/movies/director/[name]</td>
+          <td>get</td>
+          <td>None</td>
+          <td>JSON object holding data about the director including bio, birth year, and death year.</td>
+        </tr>
+        <tr>
+          <td>Allow new users to register.</td>
+          <td>/users</td>
+          <td>post</td>
+          <td>JSON object holding information about the user needing to be added.</td>
+          <td>JSON object holding information about the user added.</td>
+        </tr>
+        <tr>
+          <td>Allow users to update their user info.</td>
+          <td>/users/[username]</td>
+          <td>put</td>
+          <td>None</td>
+          <td>A text showing username has been updated.</td>
+        </tr>
+        <tr>
+          <td>Allow users to add a movie to their list of favorites.</td>
+          <td>/users/[username]/[title]</td>
+          <td>post</td>
+          <td>None</td>
+          <td>A text that a movie has been added</td>
+        </tr>
+        <tr>
+          <td>Allow users to remove a movie from their list of favorites.</td>
+          <td>/users/[username]/[title]</td>
+          <td>delete</td>
+          <td>None</td>
+          <td>A text that a movie has been removed</td>
+        </tr>
+        <tr>
+          <td>Allow existing users to deregister.</td>
+          <td>/users/[username]</td>
+          <td>delete</td>
+          <td>None</td>
+          <td>A text that a user email has been removed.</td>
+        </tr>
+      </table>
+    </div>
   </body>
 </html>
