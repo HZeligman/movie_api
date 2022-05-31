@@ -1,12 +1,16 @@
 const express = require('express'),
   morgan = require('morgan');
+  bodyParser = require('body-parser');
+  uuid = require('uuid');
 
 const app = express();
+
+app.use(bodyParser.json());
 
 app.use(morgan('common'));
 app.use(express.static('public'));
 
-let topMovies = [
+let movies = [
   {
     title: 'Now and Then',
     director: 'Lesli Linka Glatter'
@@ -50,11 +54,47 @@ let topMovies = [
 ];
 
 app.get('/movies', (req, res) => {
-  res.json(topMovies);
+  res.json(movies);
 });
 
 app.get('/', (req, res) => {
   res.send('Welcome to My Cinema!')
+});
+
+app.get('/movies', (req, res) => {
+  res.json(movies);
+});
+
+app.get('/movies/:title', (req, res) => {
+  res.json(movies);
+});
+
+app.get('/movies/genre/:name', (req, res) => {
+  res.json(genre);
+});
+
+app.get('/movies/director/:name', (req, res) => {
+  res.json(director);
+});
+
+app.post('/users', (req, res) => {
+  res.json(users);
+});
+
+app.put('/users/:username', (req, res) => {
+  res.json(users);
+});
+
+app.post('/users/:username/:title', (req, res) => {
+  res.send('Movie has been added to favorites.');
+});
+
+app.delete('/users/:username/:title', (req, res) => {
+  res.send('Movie has been removed from favorites.');
+});
+
+app.delete('/users/:username', (req, res) => {
+  res.send('User email has been removed.');
 });
 
 app.use((err, req, res, next) => {
