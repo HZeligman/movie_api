@@ -43,7 +43,7 @@
           <td>JSON object holding data about the specific genre.</td>
         </tr>
         <tr>
-          <td>Return data about a director by name</td>
+          <td>Return data about a director by name.</td>
           <td>/movies/director/[name]</td>
           <td>get</td>
           <td>None</td>
@@ -53,36 +53,49 @@
           <td>Allow new users to register.</td>
           <td>/users</td>
           <td>post</td>
-          <td>JSON object holding information about the user needing to be added.</td>
-          <td>JSON object holding information about the user added.</td>
+          <td>JSON object holding information about the user needing to be added. Example<br>
+          {<br>
+            Username: HellyZelly,
+            Password: Heather123!,
+            Email: HellyZelly@gmail.com,
+            Birthday: 1961-01-03
+          }</td>
+          <td>JSON object holding information about the user added. Structured like:<br>
+          {<br>
+            ID: 1,
+            Username: HellyZelly,
+            Password: Heather123,
+            Email: HellyZelly@gmail.com,
+            Birthday: 1961-01-03
+          }</td>
         </tr>
         <tr>
           <td>Allow users to update their user info.</td>
           <td>/users/[username]</td>
           <td>put</td>
-          <td>None</td>
-          <td>A text showing username has been updated.</td>
+          <td>A JSON object holding data to update.</td>
+          <td>A JSON object holding the updated user.</td>
         </tr>
         <tr>
           <td>Allow users to add a movie to their list of favorites.</td>
-          <td>/users/[username]/[title]</td>
+          <td>/users/[username]/movies/[MovieID]</td>
           <td>post</td>
           <td>None</td>
-          <td>A text that a movie has been added</td>
+          <td>A JSON object holding the updated user.</td>
         </tr>
         <tr>
           <td>Allow users to remove a movie from their list of favorites.</td>
-          <td>/users/[username]/[title]</td>
+          <td>/users/[username]/movies/[MovieID]</td>
           <td>delete</td>
           <td>None</td>
-          <td>A text that a movie has been removed</td>
+          <td>A JSON object holding the updated user.</td>
         </tr>
         <tr>
           <td>Allow existing users to deregister.</td>
           <td>/users/[username]</td>
           <td>delete</td>
           <td>None</td>
-          <td>A text that a user email has been removed.</td>
+          <td>A text that a user has been deleted.</td>
         </tr>
       </table>
     </div>
