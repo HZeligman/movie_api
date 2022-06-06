@@ -4,7 +4,10 @@ const Models = require('./models.js');
 const Movies = Models.Movie;
 const Users = Models.User;
 
-mongoose.connect('mongodb://localhost:27017/myCinemaDB', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost:27017/myCinemaDB', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 const express = require('express'),
   morgan = require('morgan');
@@ -80,10 +83,14 @@ app.get('/', (req, res) => {
 
 //Movie by title
 app.get('/movies/:title', (req, res) => {
-  Movies.findOne({Title: req.params.Title})
+  Movies.findOne({Title: req.params.title})
   .then((movie) => {
-    res.json(movie);
-  })
+    if (movie) {
+      res.status(200).json(movie);
+    } else {
+      res.status(400).send('Movie not found.');
+    };
+  });
   .catch((err) => {
     console.error(err);
     res.status(500).send('Error: ' + err);
@@ -92,7 +99,7 @@ app.get('/movies/:title', (req, res) => {
 
 //Movie by genre
 app.get('/movies/genre/:name', (req, res) => {
-  Movies.findOne({'Genre.Name': req.params.name})
+  Movies.findOne({'genre.name': req.params.name})
   .then((genre) => {
     res.status(201).json(genre)
   })
@@ -103,11 +110,15 @@ app.get('/movies/genre/:name', (req, res) => {
 });
 
 //Movie by director
-app.get('/movies/director/:name', (req, res) => {
-  Movies.findOne({'Director.Name': req.params.Name})
-    .then((director) => {
-      res.status(201).json(director)
-    })
+app.get('/directors/:name', (req, res) => {
+  Movies.findOne({'director.name': req.params.name})
+    .then((movie) => {
+      if (movie) {
+        res.status(200).json(movie.director);
+      } else {
+        res.status(400).send('Director not found.');
+      }
+    });
     .catch((err) => {
       console.error(err);
       res.status(500).send('Error: ' + err);
@@ -189,7 +200,7 @@ app.put('/users/:username', (req, res) => {
 //Add a movie to a user's list of favorites
 app.post('/users/:username/movies/:MovieID', (req, res) => {
   Users.findOneAndUpdate({Username: req.params.Username}, {
-    $push: {FavoriteMovies: reqparams.MovieID}
+    $push: {FavoriteMovies: req.params.MovieID}
   },
   {new: true},
   (err, updatedUser) => {
