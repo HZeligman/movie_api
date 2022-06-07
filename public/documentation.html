@@ -30,21 +30,21 @@
         </tr>
         <tr>
           <td>Return data about a specific movie by title to the user.</td>
-          <td>/movies/[title]</td>
+          <td>/movies/[Title]</td>
           <td>get</td>
           <td>None</td>
           <td>JSON object containing the movies title, director, description, genre, and image URL.</td>
         </tr>
         <tr>
           <td>Return data about a genre by name.</td>
-          <td>/movies/genre/[name]</td>
+          <td>/movies/Genre/[Name]</td>
           <td>get</td>
           <td>None</td>
           <td>JSON object holding data about the specific genre.</td>
         </tr>
         <tr>
           <td>Return data about a director by name.</td>
-          <td>/directors/[name]</td>
+          <td>/Directors/[Name]</td>
           <td>get</td>
           <td>None</td>
           <td>JSON object holding data about the director including bio, birth year, and death year.</td>
@@ -78,21 +78,21 @@
         </tr>
         <tr>
           <td>Allow users to add a movie to their list of favorites.</td>
-          <td>/users/[username]/favorites/[MovieID]</td>
+          <td>/users/[Username]/favorites/[MovieID]</td>
           <td>post</td>
           <td>None</td>
           <td>A JSON object holding the updated user.</td>
         </tr>
         <tr>
           <td>Allow users to remove a movie from their list of favorites.</td>
-          <td>/users/[username]/favorites/[MovieID]</td>
+          <td>/users/[Username]/favorites/[MovieID]</td>
           <td>delete</td>
           <td>None</td>
           <td>A JSON object holding the updated user.</td>
         </tr>
         <tr>
           <td>Allow existing users to deregister.</td>
-          <td>/users/[username]</td>
+          <td>/users/[Username]</td>
           <td>delete</td>
           <td>None</td>
           <td>A text that a user has been deleted.</td>
