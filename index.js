@@ -102,11 +102,11 @@ app.get('/movies/genre/:Name', (req, res) => {
 });
 
 //Movie by director
-app.get('/directors/:Name', (req, res) => {
-  Movies.find({'Director.Name': req.params.Name})
+app.get('/directors/:name', (req, res) => {
+  Movies.findOne({'Director.Name': req.params.name})
     .then((movie) => {
       if (movie) {
-        res.status(200).json(movie.director);
+        res.status(200).json(movie.Director);
       } else {
         res.status(400).send('Director not found.');
       }
