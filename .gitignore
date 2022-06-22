@@ -5133,3 +5133,11 @@ node_modules/@mapbox/node-pre-gyp/bin/node-pre-gyp
 node_modules/.bin/node-pre-gyp
 node_modules/.bin/mkdirp
 node_modules/.bin/color-support
+node_modules/mongodb/.DS_Store
+node_modules/mongodb/lib/.DS_Store
+node_modules/mongodb/lib/cmap/.DS_Store
+node_modules/mongodb/src/.DS_Store
+node_modules/mongoose/.DS_Store
+node_modules/mongoose/lib/helpers/.DS_Store
+node_modules/mongoose/lib/helpers/path/.DS_Store
+node_modules/mongoose/node_modules/.DS_Store
