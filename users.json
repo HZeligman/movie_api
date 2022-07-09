@@ -1,0 +1,4 @@
+{"_id":{"$oid":"629bf047de79c56e4a1a846b"},"Username":"HZeligman","Password":"Heather123!","Email":"HZeligman@gmail.com","Birthday":{"$date":"1990-02-16T00:00:00Z"},"FavoriteMovies":[{"$oid":"629be6fdde79c56e4a1a8461"}]}
+{"_id":{"$oid":"629bf0b2de79c56e4a1a846c"},"Username":"DrZMel","Password":"Melly1984","Email":"drmelzel@gmail.com","Birthday":{"$date":"1984-05-08T00:00:00Z"},"FavoriteMovies":[{"$oid":"629be9fede79c56e4a1a8464"}]}
+{"_id":{"$oid":"629bf15bde79c56e4a1a846d"},"Username":"theaterteach1","Password":"broadwaystar","Email":"theaterteach1@gmail.com","Birthday":{"$date":"1981-02-14T00:00:00Z"},"FavoriteMovies":[{"$oid":"629be928de79c56e4a1a8463"}]}
+{"_id":{"$oid":"629bf1bbde79c56e4a1a846e"},"Username":"momof2","Password":"livandli","Email":"momof2@gmail.com","Birthday":{"$date":"1976-06-25T00:00:00Z"},"FavoriteMovies":[{"$oid":"629beee3de79c56e4a1a8469"}]}
