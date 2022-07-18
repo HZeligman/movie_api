@@ -4,9 +4,12 @@ const Models = require('./models.js');
 const Movies = Models.Movie;
 const Users = Models.User;
 
-mongoose.connect('mongodb://localhost:27017/myCinemaDB', { useNewUrlParser: true, useUnifiedTopology: true });
+//mongoose.connect('mongodb://localhost:27017/myCinemaDB', { useNewUrlParser: true, useUnifiedTopology: true });
+
+mongoose.connect('mongodb+srv://HZeligman:Gmrmh1990@cluster0.y23vfe4.mongodb.net/myCinemaDB?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 
 //mongoose.connect('process.env.CONNECTION_URI', { useNewUrlParser: true, useUnifiedTopology: true });
+
 
 const express = require('express'),
   morgan = require('morgan');
