@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const cors = require('cors');
-let allowedOrigins = ['*'];
+const allowedOrigins = ['*'];
 
 app.use(cors({
   origin: (origin, callback) => {
