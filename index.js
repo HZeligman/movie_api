@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const app = express();
-const {check, validationResult} = require('express-validator');
+const { check, validationResult } = require('express-validator');
 
 const mongoose = require('mongoose');
 const Models = require('./models.js');
@@ -42,10 +42,8 @@ app.use(cors({
       return callback(new Error(message), false);
     }
     return callback(null, true);
-  }
+  },
 }));
-
-const { check, validationResult } = require('express-validator');
 
 let auth = require('./auth')(app);
 
@@ -55,48 +53,7 @@ require('./passport');
 app.use(morgan('common'));
 app.use(express.static('public'));
 
-let movies = [
-  {
-    title: 'Now and Then',
-    director: 'Lesli Linka Glatter',
-  },
-  {
-    title: 'Clue',
-    director: 'Jonathan Lynn'
-  },
-  {
-    title: 'Hook',
-    director: 'Steven Spielberg'
-  },
-  {
-    title: 'The Princess Bride',
-    director: 'Rob Reiner'
-  },
-  {
-    title: 'Labyrinth',
-    director: 'Jim Henson'
-  },
-  {
-    title: 'Garden State',
-    director: 'Zach Braff'
-  },
-  {
-    title: 'A Simple Favor',
-    director: 'Paul Feig'
-  },
-  {
-    title: 'The Baby-Sitters Club',
-    director: 'Melanie Mayron'
-  },
-  {
-    title: 'Sharknado',
-    director: 'Anthony C. Ferrante'
-  },
-  {
-    title: 'The Other Guys',
-    director: 'Adam McKay'
-  }
-];
+
 
 //All Movies
 app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -159,7 +116,7 @@ app.post('/users',
     if (!errors.isEmpty()) {
       return res.status(422).json({ errors: errors.array() });
     }
-    let hashedPassword = Users.hashedPassword(req.body.Password);
+    let hashedPassword = Users.hashPassword(req.body.Password);
     Users.findOne({ Username: req.body.Username })
       .then((user) => {
         if (user) {
@@ -168,11 +125,13 @@ app.post('/users',
           Users
             .create({
               Username: req.body.Username,
-              Password: req.body.Password,
+              Password: hashedPassword,
               Email: req.body.Email,
               Birthday: req.body.Birthday
             })
-            .then((user) => { res.status(201).json(user) })
+            .then((user) => {
+              res.status(201).json(user)
+            })
             .catch((error) => {
               console.error(error);
               res.status(500).send('Error: ' + error);
