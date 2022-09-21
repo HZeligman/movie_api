@@ -1,3 +1,9 @@
+const express = require('express');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const app = express();
+const {check, validationResult} = require('express-validator');
+
 const mongoose = require('mongoose');
 const Models = require('./models.js');
 
@@ -8,21 +14,25 @@ const Users = Models.User;
 
 //mongoose.connect('mongodb+srv://HZeligman:Gmrmh1990@cluster0.y23vfe4.mongodb.net/myCinemaDB?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 
-mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
-const express = require('express'),
-  morgan = require('morgan');
-bodyParser = require('body-parser');
+
+
 uuid = require('uuid');
 
-const app = express();
+
+
+mongoose.connect(process.env.CONNECTION_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const cors = require('cors');
-let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
+let allowedOrigins = ['*'];
 
 app.use(cors({
   origin: (origin, callback) => {
