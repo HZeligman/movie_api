@@ -31,7 +31,7 @@ mongoose.connect(process.env.CONNECTION_URI, {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-let allowedOrigins = ['http://localhost:8080', 'http://localhost:1234', http://localhost:63875, 'https://mycinemamovieapp.herokuapp.com, https://mycinemamovieapp.netlify.app'];
+let allowedOrigins = ['http://localhost:8080', 'http://localhost:1234', 'http://localhost:64048', 'https://mycinemamovieapp.herokuapp.com'];
 
 const cors = require('cors');
 app.use(cors({
